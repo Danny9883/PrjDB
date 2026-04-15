@@ -19,10 +19,20 @@ public class TestZipcode02_2 {
 		Connection   conn  = DriverManager.getConnection(url, dbuid, dbpwd);
 		
 		Statement  stmt    = conn.createStatement();
-		String     sql     = "";
+		String     sql     = "SELECT NVL(D.DEPARTMENT_NAME,'부서없음') DEPARTMENT_ID , "
+				+ "E.FIRST_NAME||' '||E.LAST_NAME ,"
+				+ "E.PHONE_NUMBER "
+				+ "FROM EMPLOYEES E LEFT JOIN DEPARTMENTS D ON "
+				+ "E.DEPARTMENT_ID = D.DEPARTMENT_ID ";
 		
 		ResultSet  rs      = stmt.executeQuery(sql);
 		
+		while( rs.next() != false ) {
+			System.out.print(rs.getString(1) + ", ");
+			System.out.print(rs.getString(2) + ", ");
+			System.out.print(rs.getString(3)      );
+			System.out.println();
+		}
 		
 		
 		
