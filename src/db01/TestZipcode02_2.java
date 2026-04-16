@@ -19,7 +19,7 @@ public class TestZipcode02_2 {
 		Connection   conn  = DriverManager.getConnection(url, dbuid, dbpwd);
 		
 		Statement  stmt    = conn.createStatement();
-		String     sql     = "SELECT NVL(D.DEPARTMENT_NAME,'부서없음') DEPARTMENT_ID , "
+		String     sql     = "SELECT NVL(D.DEPARTMENT_NAME,'부서없음') DEPARTMENT_NAME , "
 				+ "E.FIRST_NAME||' '||E.LAST_NAME ,"
 				+ "E.PHONE_NUMBER "
 				+ "FROM EMPLOYEES E LEFT JOIN DEPARTMENTS D ON "
